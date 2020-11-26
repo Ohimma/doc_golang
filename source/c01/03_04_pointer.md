@@ -1,0 +1,133 @@
+## 3.4 派生类型：指针(pointer)
+
+一个指针变量指向了一个变/常量值的内存地址。
+* 普通变量：存数据值本身
+* 指针变量：存值的内存地址
+
+Go 语言的取地址符是 &，放到一个变量前使用就会返回相应变量的内存地址。
+
+#### 1. 指针定义
+
+```
+var var_name *var-type
+
+var ip *int        /* 声明为整型*/
+var fp *float32    /* 声明为浮点型 */
+--------------------------------------
+
+// 第一种：先定义变量，在声明指针类型，在给指针类型初始化
+aint := 1
+var bint *int  
+bint = &aint   
+
+// 第二种：先定义变量，再给指针声明初始化 (用这个挺好)
+aint := 1
+ptr := &aint
+
+// 第三种：先声明指针，再给指针初始化
+astr := new(string)
+*astr = "Go编程时光"
+
+& ：从一个普通变量中取得内存地址
+*：当*在赋值操作值的右边，是从一个指针变量中取得变量值，当*在赋值操作值的左边，是指该指针指向的变量
+```
+
+
+#### 2. 指针类型
+```
+var var_name *var-type
+
+var ip *int        /* 声明为整型*/
+var fp *float32    /* 声明为浮点型 */
+
+astr := "hello"   //string
+aint := 1         //int
+abool := false    //bool
+arune := 'a'      //int32
+afloat := 1.2     //float64
+```
+
+#### 3. 空指针
+当指针声明后，没有进行初始化，其零值是 nil。
+
+```
+func main() {
+    a := 25
+    var b *int  // 声明一个指针
+
+    if b == nil {
+        fmt.Println(b)
+        fmt.Printf("ptr 的值为 : %x\n", b )
+        b = &a  // 初始化：将a的内存地址给b
+        fmt.Println(b)
+    }
+}
+
+output:
+<nil>
+0
+0xc0000100a0
+```
+
+#### 4. 向函数传递指针
+```
+package main
+
+import "fmt"
+
+func main() {
+   var a int = 100
+   var b int= 200
+   fmt.Printf("a=%d  b=%d \n", a, b )
+
+   swap(&a, &b);
+   fmt.Printf("a=%d  b=%d \n", a, b )
+}
+ 
+func swap(x *int, y *int){
+    *x, *y = *y, *x
+}
+
+output:
+a=100  b=200
+a=200  b=100
+```
+
+#### 5. 指针与切片
+
+切片与指针一样，都是引用类型。
+
+如果我们想通过一个函数改变一个数组的值，有两种方法
+
+* 将这个数组的切片做为参数传给函数  (建议用这种, 写出来会更简洁)
+* 将这个数组的指针做为参数传给函数
+
+```
+1. 使用切片
+func modify(sls []int) {
+    sls[0] = 90
+}
+
+func main() {
+    a := [3]int{89, 90, 91}
+    modify(a[:])
+    fmt.Println(a)
+}
+
+2. 使用指针
+func modify(arr *[3]int) {
+    (*arr)[0] = 90
+}
+
+func main() {
+    a := [3]int{89, 90, 91}
+    modify(&a)
+    fmt.Println(a)
+}
+
+output:
+[90 90 91]
+```
+
+
+
