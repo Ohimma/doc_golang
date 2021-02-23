@@ -208,7 +208,7 @@ intChan3 =  9
 
 1. 默认管道双向，可读可写  var ch1 chan int
 2. 声明为只读  var ch3 <-chan struct{}
-3. 声明为只写  var ch2 chan<- float 
+3. 声明为只写  var ch2 chan<- float          
               ch2 = make(chan float, 3)
 
 4. select 可以解决 管道数据阻塞问题 (之前是用 close 函数解决)

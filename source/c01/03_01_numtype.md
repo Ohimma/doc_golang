@@ -9,33 +9,36 @@ uint  是无符号，能表示的都是正数，uint8 = 0-255 = 2的8次方 = 25
 rune  等价 int32，表示一个unicode码       
 byte  8bit = 1byte，通常用于表示年龄类型       
 
-**b) int 没有并没有指定它的位数，那它的大小，是根据什么变化呢？**            
+**b) int 并没有指定它的位数，那它的大小，是根据什么变化呢？**            
 当你在32位的系统下，int 和 uint 都占用 4个字节，也就是32位。    
 若你在64位的系统下，int 和 uint 都占用 8个字节，也就是64位。     
 所以为避免某些情况最好用更加精确的 int32 和 int64      
 
 **c) 不同进制表示方法**   
-https://go-zh.org/pkg/fmt/
+<https://go-zh.org/pkg/fmt/>
+![](../_static/01_03_01-1.png)
 ```
+package main 
 import (
     "fmt"
 )
-
 func main() {
     var num01 int = 0b1100
     var num02 int = 0o14
     var num03 int = 0xC
+	str := "hello"
 
     fmt.Printf("2进制数 %b 表示的是: %d \n", num01, num01)
     fmt.Printf("8进制数 %o 表示的是: %d \n", num02, num02)
     fmt.Printf("16进制数 %X 表示的是: %d \n", num03, num03)
+    fmt.Printf("%v %#v %T %t %s %q %x %p\n", str, str, str, str, str, str, str, &str)
 }
 
 output:
-2进制数 1100 表示的是: 12
-8进制数 14 表示的是: 12
-16进制数 C 表示的是: 12
-
+2进制数 1100 表示的是: 12 
+8进制数 14 表示的是: 12 
+16进制数 C 表示的是: 12 
+hello "hello" string %!t(string=hello) hello "hello" 68656c6c6f 0xc000010200
 ```
 
 
@@ -49,11 +52,11 @@ float64，双精度，存储占8个字节，也即8*8=64位，其中1位符号�
 ![img](https://pic2.zhimg.com/80/v2-48240f0e1e0dd33ec89100cbe2d30707_hd.jpg)
 
 **a) float32 和 float64 可以表示的数值范围**        
-常量 math.MaxFloat32 表示 float32 能取到的最大数值，大约是 3.4e38；     
-常量 math.MaxFloat64 表示 float64 能取到的最大数值，大约是 1.8e308；      
+常量 math.MaxFloat32 表示 float32 能取到的最大数值，大约是3.4e38(3.4乘10的38次方)；     
+常量 math.MaxFloat64 表示 float64 能取到的最大数值，大约是1.8e308；      
 float32 和 float64 能表示的最小值分别为 1.4e-45 和 4.9e-324。      
 
-**b) float32 和 float64 可以表示的精度范围            
+**b) float32 和 float64 可以表示的精度范围**            
 float32 可以提供大约 6 个十进制数的精度        
 float64 可以提供约 15 个十进制数的精度      
 
@@ -70,6 +73,9 @@ func main() {
     fmt.Printf("%f\n", math.Pi)
     fmt.Printf("%.2f\n", math.Pi)
 }
+>>>
+3.141593
+3.14
 ```
 
 #### 3. bool类型

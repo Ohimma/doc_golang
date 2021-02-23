@@ -57,7 +57,7 @@ func main() {
 
     if b == nil {
         fmt.Println(b)
-        fmt.Printf("ptr 的值为 : %x\n", b )
+        fmt.Printf("ptr 的值为 : %x\n", b) //%x十六进制表示，字母形式为小写 a-f
         b = &a  // 初始化：将a的内存地址给b
         fmt.Println(b)
     }
