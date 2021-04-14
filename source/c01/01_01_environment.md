@@ -1,22 +1,25 @@
-## 1.1 创建编译环境
+## 1.01 创建编译环境
+
 vscode + go + 外网
 
 #### 下载安装 go
+
 根据系统下载指定类型 https://studygolang.com/dl
 
 https://studygolang.com/dl/golang/go1.14.4.windows-amd64.msi
-目前我用的windows
-我安装到了D盘下
+目前我用的 windows
+我安装到了 D 盘下
 
 设置环境变量，参考 https://jingyan.baidu.com/article/00a07f3876cd0582d128dc55.html
 
 具体细节我就不说了
 
-
 #### 下载安装 vscode
+
 https://code.visualstudio.com/Download
 
 #### 配置 vscode
+
 ```
 1. 安装插件后重启软件  Go + code runner
 

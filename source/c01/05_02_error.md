@@ -1,6 +1,7 @@
-## 5.2 函数：错误处理
+## 5.02 函数：错误处理
 
 #### 1) defer recover，捕获异常不终止程序
+
 ```
 package main
 import "fmt"
@@ -8,7 +9,7 @@ func test() {
     n1 := 100
     n2 := 0
     res := n1 / n2
-    fmt.Printf("print test() res=%v\n", res) 
+    fmt.Printf("print test() res=%v\n", res)
 }
 
 func main() {
@@ -35,7 +36,7 @@ func test() {
     n1 := 100
     n2 := 0
     res := n1 / n2
-    fmt.Printf("print test() res=%v\n", res) 
+    fmt.Printf("print test() res=%v\n", res)
 }
 
 func main() {
@@ -49,10 +50,7 @@ err=runtime error: integer divide by zero
 print main()......
 ```
 
-
-
 #### 2) 自定义错误, panic 终止程序
-
 
 ```
 package main
@@ -94,5 +92,3 @@ main.main()
         E:/me/code/go/test.go:25 +0x29
 exit status 2
 ```
-
-
