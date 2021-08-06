@@ -22,10 +22,15 @@ $ pip install sphinx
 
 3. 下载代码
 
+
 $ git clone https://github.com/Ohimma/doc_golang.git
+$ git remote add github git@github.com:Ohimma/doc_golang.git
+$ git remote add gitee  git@gitee.com:ohimma/doc_golang.git
 $ cd doc_golang
 
-$ sphinx-quickstart
+$ #sphinx-quickstart
+$ pip install sphinx_rtd_theme
+$ pip install recommonmark
 $ make clean  // 清理代码
 $ make html   // 构建代码
 
