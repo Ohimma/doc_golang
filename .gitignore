@@ -2,3 +2,5 @@ build/*
 test.*
 aa.*
 .DS_Store
+hatch_tools/*/aa*
+hatch_tools/*/*gz
