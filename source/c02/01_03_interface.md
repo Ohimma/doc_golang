@@ -1,4 +1,4 @@
-## 1.3 派生类型: 接口(interface)
+## 1.03 派生类型: 接口(interface)
 
 golang 的核心就是接口
 
